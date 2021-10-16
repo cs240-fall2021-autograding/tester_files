@@ -1,0 +1,24 @@
+#!/usr/bin/env expect
+
+# DOCUMENTATIONS: https://www.mkssoftware.com/docs/man1/expect.1.asp
+
+if { [llength $argv] != 2 } {
+    puts "expect tester.exp <executable> <test-case>"
+    exit 1
+}
+
+set executable [lindex $argv 0]
+set TEST [lindex $argv 1]
+set test_cmds [split $TEST "\n"]
+
+spawn ./$executable
+
+set timeout 0 
+
+foreach test_cmd $test_cmds {
+    expect "."
+    send "$test_cmd\r"
+    sleep 0.01
+}
+
+#expect eof
