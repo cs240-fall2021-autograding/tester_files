@@ -3,7 +3,7 @@
 # DOCUMENTATIONS: https://www.mkssoftware.com/docs/man1/expect.1.asp
 
 if { [llength $argv] != 2 } {
-    puts "expect tester.exp <executable> <test-case>"
+    puts "expect tester.exp <executable> <test-string>"
     exit 1
 }
 
