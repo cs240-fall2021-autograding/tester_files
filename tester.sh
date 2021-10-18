@@ -17,7 +17,7 @@ desired_result[1]="all 3 illegal dates rejected."
 
 # INTERACTION
 clear 
-interaction=$(expect tester.exp "$1" "${tests[$2]}" 2>&1)
+interaction=$(expect subroutine.exp "$1" "${tests[$2]}" 2>&1)
 #key_results=$(echo "$interaction" | tail -n20)
 echo "$interaction"
 printf "\n*****desired_result*****\n\n${desired_result[$2]}\n\n"
