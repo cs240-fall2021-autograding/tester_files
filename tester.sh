@@ -6,7 +6,6 @@ if [ $# -ne 2 ]; then
 fi
 
 
-# TESTS : avoid having space in the end of each test string as it can cause error in Expect.
 declare -A tests
 tests[1]=\
 $'Register user1\npassword1\nLogin user1\npassword1\nCreate\nactivity1\ncreator1\n111-233-222\n99-99-9999\n11-12/2000\n'
