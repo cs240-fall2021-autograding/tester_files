@@ -2,25 +2,32 @@
 
 # DOCUMENTATIONS: https://www.mkssoftware.com/docs/man1/expect.1.asp
 
-if { [llength $argv] != 2 } {
-    puts "expect subroutine.exp <executable> <test-string>"
+# TCL expect
+
+if { [llength $argv] != 3 } {
+    puts "expect cp4_subroutine.exp <executable> <arg-1> <test-string>"
     exit 1
 }
 
 set executable [lindex $argv 0]
-set TEST [lindex $argv 1]
+set arg1 [lindex $argv 1]
+set arg2 [lindex $argv 2]
+set TEST [string trim $arg2]
 set test_cmds [split $TEST "\n"]
 
-spawn ./$executable
+# add safety-last-element due to 'string trim' cmd
+lappend test_cmds "safety-trailer" 
 
-set timeout 0 
-
+spawn $executable $arg1
+set timeout 0
 foreach test_cmd $test_cmds {
     expect "."
     send "$test_cmd\r"
     sleep 0.01
-    expect *
+    expect *    
 }
-# expect * clears input buffer
+# expect * : clear input buffer
+
+
 
 #expect eof
