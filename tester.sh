@@ -7,8 +7,19 @@ fi
 
 
 declare -A tests
-tests[1]=\
-$'Register user1\npassword1\nLogin user1\npassword1\nCreate\nactivity1\ncreator1\n111-233-222\n99-99-9999\n11-12/2000\n'
+
+tests[1]=$'
+Register user1
+password1
+Login user1
+password1
+Create
+activity1
+creator1
+111-233-222
+99-99-9999
+11-12/2000\
+'
 
 # DESIRED RESULTS
 declare -A desired_result
