@@ -19,6 +19,8 @@ foreach test_cmd $test_cmds {
     expect "."
     send "$test_cmd\r"
     sleep 0.01
+    expect *
 }
+# expect * clears input buffer
 
 #expect eof
